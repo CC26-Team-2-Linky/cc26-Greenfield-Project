@@ -93,7 +93,7 @@ function Document() {
           {searchPreview ? (
             <div className="preview-box">{searchPreview}</div>
           ) : (
-            <div className="preview-box"></div>
+            <div className="hide"></div>
           )}
 
           <h3 className="documents-title">search from document below</h3>
