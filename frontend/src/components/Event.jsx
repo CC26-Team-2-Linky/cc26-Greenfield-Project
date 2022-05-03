@@ -4,6 +4,8 @@ import axios from "axios";
 function Event() {
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({});
+  const [eventPreview, setEventPreview] = useState([]);
+  let key = 0;
 
   const getAllEvents = async () => {
     const res = await axios.get("/events");
@@ -17,6 +19,50 @@ function Event() {
     const res = await axios.get(`/events/view/${id}`);
     const selectedEvent = res.data;
     setEvent(selectedEvent);
+  };
+
+  const searchEvents = (e) => {
+    let matches = events.filter((el) => {
+      const regExName = new RegExp(`^${e.target.value}`, "gi");
+      const regExDescrip = new RegExp(`${e.target.value}`, "gi");
+      return (
+        el.eventName.match(regExName) || el.description.match(regExDescrip)
+      );
+    });
+
+    if (e.target.value.length === 0) {
+      matches = [];
+    }
+    console.log("Matches: ", matches);
+    console.log("NEW EVENTS: ", events);
+    outputHtml(matches);
+  };
+
+  const outputHtml = (matchesArr) => {
+    console.log(matchesArr.length);
+    if (matchesArr.length > 0) {
+      const html = matchesArr.map((event, index) => {
+        return (
+          <div
+            className="result"
+            key={index}
+            onClick={async (e) => {
+              const res = await axios.get(`/events/view/${event.id}`);
+              const selectedEvent = res.data;
+              setEvent(selectedEvent);
+            }}
+          >
+            {`${event.eventName}: ${event.description.slice(0, 8)}...`}
+          </div>
+        );
+      });
+      setEventPreview(html);
+      // setShowPreview(true);
+    } else {
+      console.log("No results from search");
+      setEventPreview([]);
+      // setShowPreview(false);
+    }
   };
 
   useEffect(() => {
@@ -44,7 +90,12 @@ function Event() {
             <option value="instructor">instructors</option>
             <option value="student">students</option>
           </select>
-          <input type="text" placeholder="Keyword" />
+          <input type="text" placeholder="Keyword" onChange={searchEvents} />
+          {eventPreview.length > 0 ? (
+            <div className="event-preview">{eventPreview}</div>
+          ) : (
+            <div className="hide"></div>
+          )}
           <div className="event-btn">Search Event</div>
         </form>
       </div>

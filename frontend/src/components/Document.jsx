@@ -10,7 +10,7 @@ function Document() {
   let key = 0;
 
   const getAllDocs = async () => {
-    const res = await axios.get("http://localhost:8080/docs");
+    const res = await axios.get("/docs");
     const docsAll = res.data;
     setDocs(docsAll.reverse());
   };
@@ -54,12 +54,11 @@ function Document() {
           </div>
         );
       });
-      console.log("This is what the map returns", html);
       setSearchPreview(html);
       setShowPreview(true);
     } else {
       console.log("No results from search");
-      setSearchPreview("");
+      setSearchPreview(null);
       setShowPreview(false);
     }
   };
@@ -90,7 +89,12 @@ function Document() {
             <input type="url" placeholder="URL" onChange={searchDocs} />
             <input type="submit" value="Search Document List" />
           </form>
-          {searchPreview}
+
+          {searchPreview ? (
+            <div className="preview-box">{searchPreview}</div>
+          ) : (
+            <div className="preview-box"></div>
+          )}
 
           <h3 className="documents-title">search from document below</h3>
           <div className="show-document">
