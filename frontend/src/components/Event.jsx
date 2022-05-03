@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import AddEvent from "./AddEvent";
 
-function Event({ backtoCalender, events }) {
+function Event({ events }) {
   const [event, setEvent] = useState({});
   const [popup, setPopup] = useState(false);
   // const [events, setEvents] = useState([]);
@@ -35,9 +35,6 @@ function Event({ backtoCalender, events }) {
 
   return (
     <div className="events">
-      <button className="event-backtocalender" onClick={backtoCalender}>
-        Back to Calender
-      </button>
       <h2 className="events-title">Events</h2>
 
       <div className="search-event">

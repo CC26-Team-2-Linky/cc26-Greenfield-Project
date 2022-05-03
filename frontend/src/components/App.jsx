@@ -40,11 +40,6 @@ function App() {
     setShowEventPage(true);
   };
 
-  const backtoCalender = () => {
-    hideEverything();
-    setShowCalendarPage(true);
-  };
-
   const getAllEvents = async () => {
     const res = await axios.get("http://localhost:8080/events");
     let eventsAll = res.data;
@@ -76,9 +71,7 @@ function App() {
         <div>
           {showDocumentPage && <Document />}
           {showToDoPage && <ToDo />}
-          {showEventPage && (
-            <Event backtoCalender={backtoCalender} events={events} />
-          )}
+          {showEventPage && <Event events={events} />}
         </div>
       </div>
     </div>
