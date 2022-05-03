@@ -350,6 +350,7 @@ li:active {
 
 .addevent {
   background-color: #d5e3f2;
+  border-radius: 11px;
 }
 
 .event-form {
@@ -358,7 +359,6 @@ li:active {
   justify-content: center;
   align-items: center;
   background: #d5e3f2;
-  /* height: 10vh; */
   width: 30vw;
   border-radius: 5px;
   padding-bottom: 10px;
@@ -367,7 +367,6 @@ li:active {
 .add-event {
   color: rgb(77, 76, 76);
   margin-top: 10px;
-  border-radius: 11px;
 }
 .add-event button {
   background: #dddddd;
