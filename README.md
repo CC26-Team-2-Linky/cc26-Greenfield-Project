@@ -33,15 +33,15 @@ Current Issues to Fix:
 
 - [x] ~~Buttons create duplicates to the right.~~
 - [ ] ~~Front-end unable to pass data to the back-end.~~ Working on localhost, but not working on Heroku.
-- [ ] Events should show a list of events and have a button to add new events
-- [ ] Create more tests.
+- [*] Events should show a list of events and have a button to add new events
+- [ ] Create more tests.\c
 
 ## Backlog
 
 Future features to implement in the future:
 
 - [ ] Log-in/Sign-up page.
-- [ ] Get reminder for today's task.
+- [ ] Get reminder for today's task. \* thomas
 - [ ] Organize schedule by work or school.
 - [ ] A feature to write comments or notes.
 - [ ] Search for past events/tasks/documents.

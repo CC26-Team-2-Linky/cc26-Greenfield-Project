@@ -338,6 +338,55 @@ li:active {
   border-radius: 0px 6px 6px 0px;
 }
 
+.event-backtocalender {
+  background: #dddddd;
+  padding: 5px;
+  border-width: 0px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ------------------------------------- Add event*/
+
+.addevent {
+  background-color: #d5e3f2;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #d5e3f2;
+  /* height: 10vh; */
+  width: 30vw;
+  border-radius: 5px;
+  padding-bottom: 10px;
+}
+
+.add-event {
+  color: rgb(77, 76, 76);
+  margin-top: 10px;
+  border-radius: 11px;
+}
+.add-event button {
+  background: #dddddd;
+  margin: 0 auto;
+  padding: 5px;
+  border-width: 0px;
+  margin-top: 5px;
+  width: 10vw;
+  border-radius: 6px;
+  border-color: white;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.event-form-inner {
+  display: flex;
+  flex-flow: column;
+}
+
 /* -------------------------------------- item */
 
 .item-title {

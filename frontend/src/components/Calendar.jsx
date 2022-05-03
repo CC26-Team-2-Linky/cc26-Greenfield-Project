@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
-
 import Task from "./Task.jsx";
 
-function CalendarComponent({ selectedDate, setSelectedDate, showTask, setShowTask,}) {
+function CalendarComponent({
+  selectedDate,
+  setSelectedDate,
+  showTask,
+  setShowTask,
+}) {
   const [newToDo, setNewToDo] = useState(false);
 
   const openWindowForDate = (date) => {
+    // console.log(date);
     setSelectedDate(date.toISOString());
   };
 
@@ -28,6 +33,7 @@ function CalendarComponent({ selectedDate, setSelectedDate, showTask, setShowTas
       <Calendar
         className="react-calendar"
         onClickDay={(value) => {
+          // console.log("value", value);
           setShowTask(true);
           openWindowForDate(value);
         }}
