@@ -18,7 +18,6 @@ function Task({ date, setShowTask, setNewToDo }) {
       date: passedDate,
       time: time,
     };
-
     setToDos([...toDos, newToDo]);
     setNewToDo(true);
   };
@@ -62,7 +61,6 @@ function Task({ date, setShowTask, setNewToDo }) {
   };
 
   useEffect(() => {
-    console.log(toDos);
     validateInput();
   }, [toDos]);
 

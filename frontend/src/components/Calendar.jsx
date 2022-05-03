@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import Task from "./Task.jsx";
+
 const moment = require("moment");
+
 function CalendarComponent({
   selectedDate,
   setSelectedDate,
@@ -12,6 +14,7 @@ function CalendarComponent({
   const [newToDo, setNewToDo] = useState(false);
 
   const openWindowForDate = (date) => {
+    // console.log(date);
     setSelectedDate(date.toISOString());
   };
 
@@ -33,6 +36,7 @@ function CalendarComponent({
       <Calendar
         className="react-calendar"
         onClickDay={(value) => {
+          // console.log("value", value);
           setShowTask(true);
           openWindowForDate(value);
         }}

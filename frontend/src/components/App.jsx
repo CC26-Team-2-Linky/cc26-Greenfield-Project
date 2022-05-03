@@ -9,7 +9,7 @@ import "../styles/index.css";
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showTask, setShowTask] = useState(false);
-
+  const [events, setEvents] = useState([]);
   const [showCalendarPage, setShowCalendarPage] = useState(true);
   const [showDocumentPage, setShowDocumentPage] = useState(false);
   const [showToDoPage, setShowToDoPage] = useState(false);

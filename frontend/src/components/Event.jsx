@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import AddEvent from "./AddEvent";
 
-export default function Event({ events }) {
+function Event({ events }) {
   const [event, setEvent] = useState({});
+  const [popup, setPopup] = useState(false);
 
   const getEventById = async (e) => {
     e.preventDefault();
@@ -12,9 +14,9 @@ export default function Event({ events }) {
     setEvent(selectedEvent);
   };
 
-  useEffect(() => {
-    console.log(events);
-  }, [events, event]);
+  const enablePopup = () => {
+    setPopup(true);
+  };
 
   return (
     <div className="events">
@@ -36,6 +38,12 @@ export default function Event({ events }) {
           <input type="text" placeholder="Keyword" />
           <div className="event-btn">Search Event</div>
         </form>
+      </div>
+
+      <div className="add-event">
+        <button onClick={enablePopup}>Add new event</button>
+        {popup ? <AddEvent setPopup={setPopup} /> : undefined}
+        {/* popup{ && <AddEvent setPopup={setPopup} />} */}
       </div>
 
       <div className="show-event">
