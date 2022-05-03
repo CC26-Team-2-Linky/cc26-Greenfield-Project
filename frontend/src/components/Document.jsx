@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 function Document() {
   const [docs, setDocs] = useState([]);
   const [doc, setDoc] = useState({});
 
   const getAllDocs = async () => {
-    const res = await axios.get("/docs");
+    const res = await axios.get("http://localhost:8080/docs");
     const docsAll = res.data;
     setDocs(docsAll.reverse());
   };
@@ -14,7 +13,7 @@ function Document() {
   const getDocById = async (e) => {
     e.preventDefault();
     const id = e.target.value;
-    const res = await axios.get(`/docs/view/${id}`);
+    const res = await axios.get(`http://localhost:8080/docs/view/${id}`);
     const selectedDoc = res.data;
     setDoc(selectedDoc);
   };
@@ -26,7 +25,6 @@ function Document() {
   useEffect(() => {
     console.log("This is the doc", doc);
   }, [docs, doc]);
-
   if (docs && docs.length > 0) {
     console.log("We have a doc", docs);
     return (
@@ -96,7 +94,7 @@ function Document() {
     );
   } else {
     console.log("Docs isn't loading... that is bad, real bad.");
-    return <div>Loading...</div>;
+    return <div>loading </div>;
   }
 }
 
