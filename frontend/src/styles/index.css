@@ -164,7 +164,7 @@ td {
   display: flex;
   flex-direction: column;
   background: beige;
-  height: 100vh;
+  height: 100%;
   width: 35vh;
   align-items: center;
   padding-left: 1vw;
