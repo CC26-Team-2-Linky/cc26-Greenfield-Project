@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 function Document() {
   const [docs, setDocs] = useState([]);
   const [doc, setDoc] = useState({});
+  const [searchPreview, setSearchPreview] = useState("");
+  const [showPreview, setShowPreview] = useState(false);
+  const previewBox = useRef();
+  let key = 0;
 
   const getAllDocs = async () => {
     const res = await axios.get("http://localhost:8080/docs");
@@ -18,15 +22,54 @@ function Document() {
     setDoc(selectedDoc);
   };
 
+  const searchDocs = (e) => {
+    let matches = docs.filter((el) => {
+      const regEx = new RegExp(`${e.target.value}`, "gi");
+      return el.doc.match(regEx);
+    });
+
+    if (e.target.value.length === 0) {
+      matches = [];
+    }
+    console.log(matches);
+    outputHtml(matches);
+  };
+
+  const outputHtml = (matchesArr) => {
+    console.log(matchesArr.length);
+    if (matchesArr.length > 0) {
+      const html = matchesArr.map((el) => {
+        return (
+          <div className="result" key={key + 1}>
+            <h4
+              onClick={async () => {
+                const res = await axios.get(`/docs/view/${el.id}`);
+                const selectedDoc = res.data;
+                setDoc(selectedDoc);
+              }}
+            >
+              {el.doc}
+            </h4>
+          </div>
+        );
+      });
+      setSearchPreview(html);
+      setShowPreview(true);
+    } else {
+      console.log("No results from search");
+      setSearchPreview(null);
+      setShowPreview(false);
+    }
+  };
+
   useEffect(() => {
     getAllDocs();
   }, []);
 
-  useEffect(() => {
-    console.log("This is the doc", doc);
-  }, [docs, doc]);
+
+  useEffect(() => {}, [docs, doc]);
+
   if (docs && docs.length > 0) {
-    console.log("We have a doc", docs);
     return (
       <div className="documents">
         <h2 className="documents-title">Documents</h2>
@@ -43,12 +86,17 @@ function Document() {
               <option value="instructor">instructors</option>
               <option value="student">students</option>
             </select>
-            <input type="url" placeholder="URL" />
+            <input type="url" placeholder="URL" onChange={searchDocs} />
             <input type="submit" value="Search Document List" />
           </form>
 
-          <h3 className="documents-title">search from document below</h3>
+          {searchPreview ? (
+            <div className="preview-box">{searchPreview}</div>
+          ) : (
+            <div className="hide"></div>
+          )}
 
+          <h3 className="documents-title">search from document below</h3>
           <div className="show-document">
             <select onChange={getDocById} required>
               <option hidden>-- Document --</option>
@@ -92,9 +140,8 @@ function Document() {
         </div>
       </div>
     );
-  } else {
-    console.log("Docs isn't loading... that is bad, real bad.");
-    return <div>loading </div>;
+  } else if (docs.length === 0) {
+    return <div>There are no docuemnts</div>;
   }
 }
 

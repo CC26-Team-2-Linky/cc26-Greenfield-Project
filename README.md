@@ -32,9 +32,11 @@ Enjoy your experience using **Morpho**!
 Current Issues to Fix:
 
 - [x] ~~Buttons create duplicates to the right.~~
-- [ ] ~~Front-end unable to pass data to the back-end.~~ Working on localhost, but not working on Heroku.
-- [*] Events should show a list of events and have a button to add new events
-- [ ] Create more tests.\c
+
+- [x] ~~Front-end unable to pass data to the back-end.~~ Working on localhost, but not working on Heroku.
+- [ ] Events should show a list of events and have a button to add new events
+- [-] Create more tests.
+
 
 ## Backlog
 
@@ -44,7 +46,7 @@ Future features to implement in the future:
 - [ ] Get reminder for today's task. \* thomas
 - [ ] Organize schedule by work or school.
 - [ ] A feature to write comments or notes.
-- [ ] Search for past events/tasks/documents.
+- [T] Search for past events/tasks/documents.
 - [ ] Organize community events/schedules.
 - [ ] Communication feature to connect to other classmates or coworkers.
 - [ ] Check in for class/work place - status for communication feature (This feature is meant to show whether someone will be attending online or in person).

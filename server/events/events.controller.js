@@ -12,7 +12,7 @@ module.exports = {
     res.send(event);
   },
 
-  async save(req, res, next) {
+  async save(req, res) {
     const { id, eventName, description, dateTime } = req.body;
 
     const event = {
@@ -23,6 +23,6 @@ module.exports = {
 
     id ? await eventsModel.update(id, event) : await eventsModel.create(event);
 
-    res.status(200).send();
+    res.status(200).send("Line 27 of events/events.controller");
   },
 };

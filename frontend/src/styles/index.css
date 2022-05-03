@@ -108,6 +108,22 @@ body {
   overflow: auto;
 }
 
+.preview-box {
+  width: 100%;
+  text-align: left;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 5%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.preview-box :hover {
+  background-color: #f0f0f0;
+  color: #478ddd;
+}
+
 .documents-title {
   text-align: center;
   margin-bottom: 4vh;
@@ -288,6 +304,32 @@ li:active {
   width: 60vw;
   height: 90vh;
   overflow: auto;
+}
+
+.event-preview {
+  width: 100%;
+  text-align: left;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 5%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.event-preview :hover {
+  background-color: #f0f0f0;
+  color: #478ddd;
+}
+
+.result {
+  padding: 2%;
+  color: #3f54be;
+  border-radius: 10px;
+}
+
+.result :hover {
+  color: #478ddd;
 }
 
 .events-title {
