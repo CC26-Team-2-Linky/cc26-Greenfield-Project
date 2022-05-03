@@ -58,7 +58,7 @@ function Task({ date, setShowTask, setNewToDo }) {
       description: input.task,
       dateTime: `${input.date} ${input.time}`,
     };
-    await axios.post(`/events/save`, newEvent);
+    await axios.post(`http://localhost:8080/events/save`, newEvent);
   };
 
   useEffect(() => {
@@ -101,7 +101,13 @@ function Task({ date, setShowTask, setNewToDo }) {
           />
 
           <button type="submit">Add</button>
-          <button onClick={() => {setShowTask(false)}}>Cancel</button>
+          <button
+            onClick={() => {
+              setShowTask(false);
+            }}
+          >
+            Cancel
+          </button>
         </form>
       </div>
     </div>

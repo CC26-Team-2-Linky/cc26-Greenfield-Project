@@ -53,23 +53,31 @@ function Event() {
         <select onChange={getEventById} required>
           <option hidden>-- Event --</option>
           {events.map((event, index) => {
-            return <option key={index} value={event.id}>{event.eventName}</option>
+            return (
+              <option key={index} value={event.id}>
+                {event.eventName}
+              </option>
+            );
           })}
         </select>
         <div className="event-btn-show">Show Event</div>
       </div>
 
-      {event.id ? <div className="event-content event-selected">
-        <div className="item-title">{event.eventName}</div>
-        <div>Event Time : {event.dateTime.slice(0,10)}</div>
-        <div>Description : {event.description}</div>
-      </div> : ""}
+      {event.id ? (
+        <div className="event-content event-selected">
+          <div className="item-title">{event.eventName}</div>
+          <div>Event Time : {event.dateTime.slice(0, 10)}</div>
+          <div>Description : {event.description}</div>
+        </div>
+      ) : (
+        ""
+      )}
 
       {events.map((event, index) => {
         return (
           <div key={index} className="event-content">
             <div className="item-title">{event.eventName}</div>
-            <div>Event Time : {event.dateTime.slice(0,10)}</div>
+            <div>Event Time : {event.dateTime.slice(0, 10)}</div>
             <div>Description : {event.description}</div>
           </div>
         );
