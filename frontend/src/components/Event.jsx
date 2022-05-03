@@ -17,7 +17,7 @@ function Event({ events }) {
   const getEventById = async (e) => {
     e.preventDefault();
     const id = e.target.value;
-    const res = await axios.get(`http://localhost:8080/events/view/${id}`);
+    const res = await axios.get(`/events/view/${id}`);
     const selectedEvent = res.data;
     setEvent(selectedEvent);
   };

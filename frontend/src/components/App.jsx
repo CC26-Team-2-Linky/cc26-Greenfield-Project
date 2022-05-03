@@ -14,7 +14,6 @@ function App() {
   const [showDocumentPage, setShowDocumentPage] = useState(false);
   const [showToDoPage, setShowToDoPage] = useState(false);
   const [showEventPage, setShowEventPage] = useState(false);
-  const [events, setEvents] = useState([]);
 
   const hideEverything = () => {
     setShowCalendarPage(false);
@@ -41,7 +40,7 @@ function App() {
   };
 
   const getAllEvents = async () => {
-    const res = await axios.get("http://localhost:8080/events");
+    const res = await axios.get("/events");
     let eventsAll = res.data;
     setEvents(eventsAll.reverse());
   };

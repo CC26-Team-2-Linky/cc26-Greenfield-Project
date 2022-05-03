@@ -412,6 +412,7 @@ li:active {
 .add-event {
   color: rgb(77, 76, 76);
   margin-top: 10px;
+}
 
 .add-event button {
   background: #dddddd;
@@ -430,7 +431,6 @@ li:active {
   display: flex;
   flex-flow: column;
 }
-
 
 /* -------------------------------------- item */
 

@@ -20,7 +20,7 @@ function AddEvent({ setPopup }) {
       description: input.task,
       dateTime: `${input.date} ${input.time}`,
     };
-    await axios.post(`http://localhost:8080/events/save`, postData);
+    await axios.post(`/events/save`, postData);
   };
 
   return (

@@ -6,7 +6,7 @@ function ToDo() {
   const [todo, setTodo] = useState({});
 
   const getAllTodos = async () => {
-    const res = await axios.get("http://localhost:8080/tasks");
+    const res = await axios.get("/tasks");
     const todosAll = res.data;
     setTodos(todosAll.reverse());
   };
@@ -14,7 +14,7 @@ function ToDo() {
   const getTodoById = async (e) => {
     e.preventDefault();
     const id = e.target.value;
-    const res = await axios.get(`http://localhost:8080/tasks/view/${id}`);
+    const res = await axios.get(`/tasks/view/${id}`);
     const selectedTodo = res.data;
     setTodo(selectedTodo);
   };

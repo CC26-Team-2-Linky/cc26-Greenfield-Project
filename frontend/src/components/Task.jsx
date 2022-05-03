@@ -37,7 +37,7 @@ function Task({ date, setShowTask, setNewToDo }) {
       dateTime: `${input.date} ${input.time}`,
     };
 
-    await axios.post(`http://localhost:8080/docs/save`, newDoc);
+    await axios.post(`/docs/save`, newDoc);
   };
 
   const addNewToDo = async () => {
@@ -47,7 +47,7 @@ function Task({ date, setShowTask, setNewToDo }) {
       taskInfo: input.task,
       dateTime: `${input.date} ${input.time}`,
     };
-    await axios.post(`http://localhost:8080/tasks/save`, newToDo);
+    await axios.post(`/tasks/save`, newToDo);
   };
 
   const addNewEvent = async () => {
@@ -57,7 +57,7 @@ function Task({ date, setShowTask, setNewToDo }) {
       description: input.task,
       dateTime: `${input.date} ${input.time}`,
     };
-    await axios.post(`http://localhost:8080/events/save`, newEvent);
+    await axios.post(`/events/save`, newEvent);
   };
 
   useEffect(() => {
