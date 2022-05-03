@@ -5,13 +5,6 @@ import AddEvent from "./AddEvent";
 function Event({ events }) {
   const [event, setEvent] = useState({});
   const [popup, setPopup] = useState(false);
-  // const [events, setEvents] = useState([]);
-
-  // const getAllEvents = async () => {
-  //   const res = await axios.get("http://localhost:8080/events");
-  //   const eventsAll = res.data;
-  //   setEvents(eventsAll.reverse());
-  // };
 
   const getEventById = async (e) => {
     e.preventDefault();
@@ -24,14 +17,6 @@ function Event({ events }) {
   const enablePopup = () => {
     setPopup(true);
   };
-
-  // useEffect(() => {
-  //   getAllEvents();
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(event);
-  // }, [events, event]);
 
   return (
     <div className="events">
@@ -97,5 +82,3 @@ function Event({ events }) {
     </div>
   );
 }
-
-export default Event;

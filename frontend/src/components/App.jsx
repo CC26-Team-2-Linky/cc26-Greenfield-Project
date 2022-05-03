@@ -6,7 +6,6 @@ import Document from "./Document";
 import ToDo from "./ToDo";
 import Event from "./Event.jsx";
 import "../styles/index.css";
-
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showTask, setShowTask] = useState(false);
@@ -15,6 +14,7 @@ function App() {
   const [showDocumentPage, setShowDocumentPage] = useState(false);
   const [showToDoPage, setShowToDoPage] = useState(false);
   const [showEventPage, setShowEventPage] = useState(false);
+  const [events, setEvents] = useState([]);
 
   const hideEverything = () => {
     setShowCalendarPage(false);
@@ -65,6 +65,7 @@ function App() {
             setSelectedDate={setSelectedDate}
             showTask={showTask}
             setShowTask={setShowTask}
+            events={events}
           />
         )}
 

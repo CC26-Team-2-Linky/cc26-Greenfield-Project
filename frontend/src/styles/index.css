@@ -24,6 +24,9 @@ body {
   margin-top: 5vh;
 }
 
+.hasTask {
+  background-color: rgb(248, 138, 157) !important;
+}
 /* -------------------------------------- Calendar */
 
 .calendar-title {
@@ -367,7 +370,7 @@ li:active {
 .add-event {
   color: rgb(77, 76, 76);
   margin-top: 10px;
-}
+
 .add-event button {
   background: #dddddd;
   margin: 0 auto;
@@ -385,6 +388,7 @@ li:active {
   display: flex;
   flex-flow: column;
 }
+
 
 /* -------------------------------------- item */
 
