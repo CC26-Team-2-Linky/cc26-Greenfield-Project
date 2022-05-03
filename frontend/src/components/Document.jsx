@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-
 function Document() {
   const [docs, setDocs] = useState([]);
   const [doc, setDoc] = useState({});
@@ -10,7 +9,7 @@ function Document() {
   let key = 0;
 
   const getAllDocs = async () => {
-    const res = await axios.get("/docs");
+    const res = await axios.get("http://localhost:8080/docs");
     const docsAll = res.data;
     setDocs(docsAll.reverse());
   };
@@ -18,7 +17,7 @@ function Document() {
   const getDocById = async (e) => {
     e.preventDefault();
     const id = e.target.value;
-    const res = await axios.get(`/docs/view/${id}`);
+    const res = await axios.get(`http://localhost:8080/docs/view/${id}`);
     const selectedDoc = res.data;
     setDoc(selectedDoc);
   };
@@ -66,6 +65,7 @@ function Document() {
   useEffect(() => {
     getAllDocs();
   }, []);
+
 
   useEffect(() => {}, [docs, doc]);
 

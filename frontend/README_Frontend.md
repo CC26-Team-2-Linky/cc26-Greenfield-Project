@@ -22,6 +22,7 @@ https://blog.logrocket.com/react-calendar-tutorial-build-customize-calendar/
 #### Future styles and front end functionality to implement in the future:
 
 - [Y] When adding a task change the day tile color
+
 - [ ] Add information of task inside the day tile
 - [ ] On click on day tile with task, show modal with selected task
 - [ ] Stylize the calendar component

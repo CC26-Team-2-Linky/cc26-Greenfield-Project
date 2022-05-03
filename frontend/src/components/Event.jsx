@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import AddEvent from "./AddEvent";
 
-function Event() {
-  const [events, setEvents] = useState([]);
+function Event({ events }) {
   const [event, setEvent] = useState({});
   const [eventPreview, setEventPreview] = useState([]);
   let key = 0;
@@ -13,13 +13,15 @@ function Event() {
     setEvents(eventsAll.reverse());
   };
 
+
   const getEventById = async (e) => {
     e.preventDefault();
     const id = e.target.value;
-    const res = await axios.get(`/events/view/${id}`);
+    const res = await axios.get(`http://localhost:8080/events/view/${id}`);
     const selectedEvent = res.data;
     setEvent(selectedEvent);
   };
+
 
   const searchEvents = (e) => {
     let matches = events.filter((el) => {
@@ -73,6 +75,7 @@ function Event() {
     console.log(event);
   }, [events, event]);
 
+
   return (
     <div className="events">
       <h2 className="events-title">Events</h2>
@@ -98,6 +101,12 @@ function Event() {
           )}
           <div className="event-btn">Search Event</div>
         </form>
+      </div>
+
+      <div className="add-event">
+        <button onClick={enablePopup}>Add new event</button>
+        {popup ? <AddEvent setPopup={setPopup} /> : undefined}
+        {/* popup{ && <AddEvent setPopup={setPopup} />} */}
       </div>
 
       <div className="show-event">
@@ -136,5 +145,3 @@ function Event() {
     </div>
   );
 }
-
-export default Event;
