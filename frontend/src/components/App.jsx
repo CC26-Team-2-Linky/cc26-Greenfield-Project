@@ -71,7 +71,7 @@ function App() {
         <div>
           {showDocumentPage && <Document />}
           {showToDoPage && <ToDo />}
-          {showEventPage && <Event events={events} />}
+          {showEventPage && <Event events={events} setEvents={setEvents} />}
         </div>
       </div>
     </div>

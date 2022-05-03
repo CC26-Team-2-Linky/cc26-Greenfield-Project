@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AddEvent from "./AddEvent";
 
-export default function Event({ events }) {
+export default function Event({ events, setEvents }) {
   const [event, setEvent] = useState({});
   const [eventPreview, setEventPreview] = useState([]);
+  const [popup, setPopup] = useState(false);
   let key = 0;
+
+  const enablePopup = () => {
+    setPopup(true);
+  };
 
   const getAllEvents = async () => {
     const res = await axios.get("/events");
